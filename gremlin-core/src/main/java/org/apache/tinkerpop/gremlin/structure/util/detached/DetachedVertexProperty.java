@@ -144,7 +144,7 @@ public class DetachedVertexProperty<V> extends DetachedElement<VertexProperty<V>
     }
 
     /**
-     * Provides a way to construct an immutable {@link DetachedEdge}.
+     * Provides a way to construct an immutable {@link DetachedVertexProperty}.
      */
     public static DetachedVertexProperty.Builder build() {
         return new Builder(new DetachedVertexProperty());
