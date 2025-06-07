@@ -1447,6 +1447,11 @@ public class TraversalRootVisitorTest {
     }
 
     @Test
+    public void shouldParseTraversalMethod_asBool() {
+        compare(g.V().map(__.asBool()), eval("g.V().map(__.asBool())"));
+    }
+
+    @Test
     public void shouldParseTraversalMethod_dateAdd() {
         compare(g.V().map(__.dateAdd(DT.day, 2)), eval("g.V().map(__.dateAdd(DT.day, 2))"));
     }
