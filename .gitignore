@@ -46,3 +46,4 @@ gremlint/
 coverage.out
 .env
 gremlinconsoletest.egg-info
+.java-version
