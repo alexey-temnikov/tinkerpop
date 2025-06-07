@@ -1260,6 +1260,11 @@ public class TraversalMethodVisitorTest {
     }
 
     @Test
+    public void shouldParseTraversalMethod_asBool() throws Exception {
+        compare(g.V().map(__.asBool()), eval("g.V().map(__.asBool())"));
+    }
+
+    @Test
     public void shouldParseTraversalMethod_format_String() throws Exception {
         compare(g.V().format("Hello %{name}"), eval("g.V().format(\"Hello %{name}\")"));
     }
