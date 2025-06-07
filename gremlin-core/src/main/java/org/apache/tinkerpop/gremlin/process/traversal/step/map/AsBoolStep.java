@@ -21,7 +21,6 @@ package org.apache.tinkerpop.gremlin.process.traversal.step.map;
 import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
 import org.apache.tinkerpop.gremlin.process.traversal.Traverser;
 import org.apache.tinkerpop.gremlin.process.traversal.traverser.TraverserRequirement;
-import org.apache.tinkerpop.gremlin.structure.util.StringFactory;
 
 import java.util.Collections;
 import java.util.Set;
@@ -42,8 +41,7 @@ public final class AsBoolStep<S> extends ScalarMapStep<S, Boolean> {
         if (object instanceof Boolean) return (Boolean) object;
         if (object instanceof Number) {
             final double d = ((Number) object).doubleValue();
-            if (Double.isNaN(d) || d == 0d) return false;
-            return d != 0d;
+            return !Double.isNaN(d) && d != 0d;
         }
         if (object instanceof String) {
             final String str = (String) object;
@@ -59,8 +57,4 @@ public final class AsBoolStep<S> extends ScalarMapStep<S, Boolean> {
         return Collections.singleton(TraverserRequirement.OBJECT);
     }
 
-    @Override
-    public String toString() {
-        return StringFactory.stepString(this);
-    }
 }
